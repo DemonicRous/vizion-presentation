@@ -69,4 +69,6 @@ export default defineConfig({
   css: {
     devSourcemap: true,
   },
+
+  base: "/vizion-presentation/"
 })
