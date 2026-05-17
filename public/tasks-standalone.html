@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GofraLub – Задачи</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            margin: 0;
+            padding: 20px;
+        }
+        @media (prefers-color-scheme: dark) {
+            body { background: #0f172a; }
+        }
+        .transition-all { transition: all 0.2s ease; }
+    </style>
+</head>
+<body>
+<div class="max-w-7xl mx-auto">
+    <!-- Заголовок и действия -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Задачи</h1>
+            <p class="text-gray-600 dark:text-gray-400 mt-1">Управление задачами и проектами</p>
+        </div>
+        <div class="flex gap-2">
+            <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                Экспорт
+            </button>
+            <button class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition shadow-md flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                Создать задачу
+            </button>
+        </div>
+    </div>
+
+    <!-- Статистика -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 mb-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4"><div class="flex items-center justify-between"><div><p class="text-sm text-gray-500 dark:text-gray-400">Всего задач</p><p class="text-2xl font-bold text-gray-900 dark:text-white">75</p></div><div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div></div></div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4"><div class="flex items-center justify-between"><div><p class="text-sm text-gray-500 dark:text-gray-400">В работе</p><p class="text-2xl font-bold text-gray-900 dark:text-white">23</p></div><div class="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex items-center justify-center"><svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div></div></div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4"><div class="flex items-center justify-between"><div><p class="text-sm text-gray-500 dark:text-gray-400">Выполнено</p><p class="text-2xl font-bold text-gray-900 dark:text-white">14</p></div><div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center"><svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div></div></div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4"><div class="flex items-center justify-between"><div><p class="text-sm text-gray-500 dark:text-gray-400">Просрочено</p><p class="text-2xl font-bold text-red-600">4</p></div><div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center"><svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div></div></div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4"><div class="flex items-center justify-between"><div><p class="text-sm text-gray-500 dark:text-gray-400">Прогресс</p><p class="text-2xl font-bold text-gray-900 dark:text-white">18.67%</p></div><div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center"><svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div></div></div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4"><div class="flex items-center justify-between"><div><p class="text-sm text-gray-500 dark:text-gray-400">Активных задач</p><p class="text-2xl font-bold text-gray-900 dark:text-white">53</p></div><div class="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center"><svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div></div></div>
+    </div>
+
+    <!-- Фильтры -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 mb-6">
+        <div class="flex flex-wrap gap-4">
+            <div class="flex-1 min-w-[200px]"><div class="relative"><div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div><input type="text" placeholder="Поиск по названию..." class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"></div></div>
+            <select class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><option>Все статусы</option></select>
+            <select class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><option>Все приоритеты</option></select>
+            <select class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"><option>Все типы</option></select>
+            <button class="px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg><span class="hidden sm:inline">Сбросить</span></button>
+        </div>
+    </div>
+
+    <!-- Переключатель вида -->
+    <div class="flex justify-between items-center mb-4">
+        <div class="flex gap-2">
+            <button class="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg></button>
+            <button class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg></button>
+            <button class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></button>
+        </div>
+    </div>
+
+    <!-- Таблица задач -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-700/50"><tr><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Название</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Статус</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Приоритет</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Срок</th><th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Ответственный</th></tr></thead>
+                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Разработка API для расчёта KPI</td><td class="px-6 py-4 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300">В работе</span></td><td class="px-6 py-4 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">Высокий</span></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">15.05.2026</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">Иванов И.</td></tr>
+                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Доработка PDF-отчётов по аудитам</td><td class="px-6 py-4 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">К выполнению</span></td><td class="px-6 py-4 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">Средний</span></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">20.05.2026</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">Петров П.</td></tr>
+                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Настройка экспорта ведомости в Excel</td><td class="px-6 py-4 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">Выполнена</span></td><td class="px-6 py-4 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">Низкий</span></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">10.05.2026</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">Сидоров С.</td></tr>
+                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Интеграция с Telegram-ботом</td><td class="px-6 py-4 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">Бэклог</span></td><td class="px-6 py-4 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">Срочный</span></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">01.06.2026</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">Кузнецов К.</td></tr>
+                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition"><td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">Оптимизация запросов к БД</td><td class="px-6 py-4 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300">В работе</span></td><td class="px-6 py-4 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">Критический</span></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">12.05.2026</td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">Смирнова А.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
+            <div class="text-sm text-gray-600 dark:text-gray-400">Показано с 1 по 5 из 75 записей</div>
+            <div class="flex gap-2"><button disabled class="px-3 py-1 rounded border disabled:opacity-50">← Назад</button><button class="px-3 py-1 rounded border bg-blue-600 text-white">1</button><button class="px-3 py-1 rounded border">2</button><button class="px-3 py-1 rounded border">3</button><button class="px-3 py-1 rounded border">Вперёд →</button></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

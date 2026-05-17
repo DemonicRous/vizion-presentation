@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GofraLub – Отчёт по аудиту (пример)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #f8fafc;
+            padding: 30px 20px;
+            transition: background 0.2s, color 0.2s;
+        }
+        body.dark {
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+        .report-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        body.dark .report-container {
+            background: #1e293b;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
+        }
+        .report-header {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            padding: 24px 32px;
+            color: white;
+        }
+        .report-header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .report-header .meta {
+            opacity: 0.85;
+            font-size: 0.85rem;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .report-content {
+            padding: 32px;
+        }
+        .section {
+            margin-bottom: 28px;
+        }
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #3b82f6;
+            display: inline-block;
+            color: #0f172a;
+        }
+        body.dark .section-title {
+            color: #f1f5f9;
+            border-bottom-color: #60a5fa;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 24px;
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 16px 20px;
+        }
+        body.dark .info-grid {
+            background: #0f172a;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #475569;
+        }
+        body.dark .info-label {
+            color: #94a3b8;
+        }
+        .info-value {
+            color: #1e293b;
+            font-weight: 500;
+        }
+        body.dark .info-value {
+            color: #cbd5e1;
+        }
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 10px;
+        }
+        .photo-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+        body.dark .photo-card {
+            background: #0f172a;
+            border-color: #334155;
+        }
+        .photo-card:hover {
+            transform: translateY(-3px);
+        }
+        .photo-placeholder {
+            background: #e2e8f0;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+        body.dark .photo-placeholder {
+            background: #334155;
+            color: #cbd5e1;
+        }
+        .photo-caption {
+            padding: 10px;
+            font-size: 0.75rem;
+            text-align: center;
+            color: #475569;
+        }
+        body.dark .photo-caption {
+            color: #94a3b8;
+        }
+        .alert-box {
+            background: #fef9c3;
+            border-left: 4px solid #eab308;
+            padding: 16px;
+            border-radius: 12px;
+            margin: 16px 0;
+        }
+        .success-box {
+            background: #dcfce7;
+            border-left: 4px solid #22c55e;
+            padding: 16px;
+            border-radius: 12px;
+        }
+        body.dark .alert-box {
+            background: #422006;
+            border-left-color: #eab308;
+            color: #fde047;
+        }
+        body.dark .success-box {
+            background: #14532d;
+            border-left-color: #22c55e;
+            color: #bbf7d0;
+        }
+        .comment {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+        }
+        body.dark .comment {
+            background: #0f172a;
+        }
+        .comment-author {
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 6px;
+        }
+        .footer {
+            background: #f8fafc;
+            padding: 16px 32px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+        body.dark .footer {
+            background: #0f172a;
+            border-top-color: #334155;
+            color: #94a3b8;
+        }
+        @media (max-width: 700px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .photos-grid { grid-template-columns: 1fr; }
+            .report-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+<div class="report-container">
+    <div class="report-header">
+        <h1>Отчёт по выездному аудиту</h1>
+        <div class="meta">
+            <span>№ А-2026-0042</span>
+            <span>•</span>
+            <span>15 марта 2026</span>
+            <span>•</span>
+            <span>GofraLub / Автоматизация</span>
+        </div>
+    </div>
+    <div class="report-content">
+        <!-- Основная информация -->
+        <div class="section">
+            <h2 class="section-title">Общая информация</h2>
+            <div class="info-grid">
+                <div class="info-row"><span class="info-label">Название аудита:</span><span class="info-value">Аудит производственной линии №3</span></div>
+                <div class="info-row"><span class="info-label">Тип аудита:</span><span class="info-value">Производственная линия</span></div>
+                <div class="info-row"><span class="info-label">Статус:</span><span class="info-value">Завершён</span></div>
+                <div class="info-row"><span class="info-label">Дата проведения:</span><span class="info-value">15.03.2026 (10:00 – 12:30)</span></div>
+                <div class="info-row"><span class="info-label">Создатель:</span><span class="info-value">Чернов Александр Алексеевич</span></div>
+                <div class="info-row"><span class="info-label">Ответственный:</span><span class="info-value">Смирнов А.А.</span></div>
+                <div class="info-row"><span class="info-label">Клиент:</span><span class="info-value">ООО «БМГ»</span></div>
+                <div class="info-row"><span class="info-label">Адрес объекта:</span><span class="info-value">г. Коркино, ул. Заводская, 12</span></div>
+            </div>
+        </div>
+
+        <!-- Фотоматериалы -->
+        <div class="section">
+            <h2 class="section-title">Фотоматериалы</h2>
+            <div class="photos-grid">
+                <div class="photo-card">
+                    <div class="photo-placeholder">📷 Фото 1<br>Общий вид линии</div>
+                    <div class="photo-caption">Производственная линия, общий план</div>
+                </div>
+                <div class="photo-card">
+                    <div class="photo-placeholder">📷 Фото 2<br>Дефект соединения</div>
+                    <div class="photo-caption">Выявлен зазор 2 мм на стыке конвейера</div>
+                </div>
+                <div class="photo-card">
+                    <div class="photo-placeholder">📷 Фото 3<br>Маркировка оборудования</div>
+                    <div class="photo-caption">Табличка с серийным номером</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Выявленные проблемы -->
+        <div class="section">
+            <h2 class="section-title">Выявленные проблемы</h2>
+            <div class="alert-box">
+                <strong>⚠️ Замечания:</strong> На конвейере №3 обнаружена несоосность роликов, люфт составляет 2 мм. Маркировка на пульте управления не читается.
+            </div>
+        </div>
+
+        <!-- Рекомендации -->
+        <div class="section">
+            <h2 class="section-title">Рекомендации</h2>
+            <div class="success-box">
+                <strong>✅ Предложения:</strong> Калибровка конвейера в срок до 01.04.2026, замена шильдов на пульте управления, повторный аудит после устранения.
+            </div>
+        </div>
+
+        <!-- Комментарии -->
+        <div class="section">
+            <h2 class="section-title">Комментарии</h2>
+            <div class="comment">
+                <div class="comment-author">Чернов А.А. (15.03.2026 12:45)</div>
+                <div>Рекомендую запланировать внеплановую проверку после калибровки.</div>
+            </div>
+            <div class="comment">
+                <div class="comment-author">Смирнов А.А. (16.03.2026 09:15)</div>
+                <div>Принято, составим график ремонтных работ на следующей неделе.</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Отчёт сгенерирован автоматически в системе GofraLub | © 2026
+    </div>
+</div>
+
+<script>
+    // Поддержка параметра theme (dark/light)
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const theme = urlParams.get('theme');
+        if (theme === 'dark') {
+            document.body.classList.add('dark');
+        } else if (theme === 'light') {
+            document.body.classList.remove('dark');
+        }
+    })();
+</script>
+</body>
+</html>
