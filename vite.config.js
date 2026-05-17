@@ -1,11 +1,10 @@
+// vite.config.js
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
@@ -19,8 +18,8 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    open: true, // автоматически открывать браузер
-    host: true, // доступ по локальной сети
+    open: true,
+    host: true,
     fs: {
       strict: false,
       allow: ['public']
@@ -28,37 +27,46 @@ export default defineConfig({
   },
 
   build: {
-    target: 'es2022', // современные браузеры
+    target: 'es2022',
     minify: 'esbuild',
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          // выделяем Three.js в отдельный чанк (экономия при загрузке)
-          three: ['three'],
-          // Vue + роутер в один чанк
-          vue: ['vue', 'vue-router'],
-          // графики
-          charts: ['chart.js'],
+        // ✅ Теперь это функция
+        manualChunks(id) {
+          // Выделяем Three.js в отдельный чанк
+          if (id.includes('node_modules/three')) {
+            return 'three'
+          }
+          // Vue + vue-router
+          if (id.includes('node_modules/vue') || id.includes('node_modules/vue-router')) {
+            return 'vue'
+          }
+          // Chart.js
+          if (id.includes('node_modules/chart.js')) {
+            return 'charts'
+          }
+          // Остальные зависимости из node_modules — в общий vendor
+          if (id.includes('node_modules')) {
+            return 'vendor'
+          }
+          // Код самого приложения разбивается автоматически
         },
       },
     },
-    chunkSizeWarningLimit: 800, // предупреждение при больших чанках
+    chunkSizeWarningLimit: 800,
   },
 
   optimizeDeps: {
     include: ['vue', 'vue-router', 'three', 'chart.js', '@vueuse/core'],
-    exclude: [], // если что-то надо исключить
   },
 
   esbuild: {
-    // поддержка JSX (если вдруг понадобится)
     jsxFactory: 'h',
     jsxFragment: 'Fragment',
   },
 
   css: {
-    // удобная отладка CSS в dev-режиме
     devSourcemap: true,
   },
 })
